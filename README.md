@@ -2,7 +2,6 @@
 
 # ⚙️ CurlyCounsel — No-Code JSON-Based Rule Engine
 
-![License](https://img.shields.io/badge/license-ISC-blue.svg)
 ![Cloudflare Workers](https://img.shields.io/badge/Cloudflare-Workers-F38020?logo=cloudflare\&logoColor=white)
 ![Status](https://img.shields.io/badge/status-Active-success)
 ![Node](https://img.shields.io/badge/Node.js-18+-green?logo=node.js)
@@ -32,11 +31,6 @@
 * ☁️ **Serverless Architecture:** Fully runs on Cloudflare Workers — fast, scalable, cost-efficient.
 * 🔗 **Simple REST API:** Create, update, and evaluate rules via HTTP.
 
-![alt text](image.png)
-![alt text](image-1.png)
-![alt text](image-2.png)
-![alt text](image-3.png)
-![alt text](image-4.png)
 ---
 
 ## 🧱 Tech Stack

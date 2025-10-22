@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CurlyCounsel - Rule Engine Builder</title>
+  <meta name="description" content="Professional no-code rule engine builder for creating and testing complex business rules">
+  <link rel="stylesheet" href="app.css">
+  <link rel="stylesheet" href="toast.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="header-content">
+        <div class="brand">
+          <div class="brand-logo">CC</div>
+          <div class="brand-text">
+            <h1 class="brand-name">CurlyCounsel</h1>
+            <span class="brand-subtitle">Rule Engine Builder</span>
+          </div>
+        </div>
+        <div class="header-actions">
+          <button id="saveRuleset" class="btn btn-primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+              <polyline points="17 21 17 13 7 13 7 21"></polyline>
+              <polyline points="7 3 7 8 15 8"></polyline>
+            </svg>
+            Save Ruleset
+          </button>
+          <button id="previewRuleset" class="btn btn-outline">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+            Preview
+          </button>
+          <button id="themeToggle" class="btn btn-icon" aria-label="Toggle Theme">
+            <svg class="sun-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg class="moon-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Layout -->
+    <div class="main-layout">
+      <!-- Builder Area -->
+      <main class="builder-area">
+        <div id="builder-container">
+          <div id="builder">
+            <!-- Rules will be rendered here by JavaScript -->
+          </div>
+        </div>
+      </main>
+
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="sidebar-content">
+          <!-- Endpoints Section -->
+          <section class="sidebar-section">
+            <h2 class="sidebar-title">Endpoints</h2>
+            <div class="endpoint-display">
+              <pre id="endpoints" class="code-block">Save a ruleset to generate endpoints</pre>
+              <button id="copyEndpoints" class="btn-copy" aria-label="Copy Endpoints">
+                <svg class="copy-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+                <svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span class="btn-copy-text">Copy</span>
+              </button>
+            </div>
+          </section>
+
+          <!-- Test Payload Section -->
+          <section class="sidebar-section">
+            <h2 class="sidebar-title">Test Payload</h2>
+            <textarea id="payload" class="code-textarea" placeholder='{ "user": { "age": 25 } }' rows="10">{ "user": { "age": 25 } }</textarea>
+            <button id="run" class="btn btn-primary btn-full">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+              Run Evaluation
+            </button>
+          </section>
+
+          <!-- Response Section -->
+          <section class="sidebar-section">
+            <h3 class="sidebar-subtitle">API Response</h3>
+            <pre id="response" class="code-block">Run evaluation to see results</pre>
+          </section>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <div class="footer-content">
+        <span>Built with</span>
+        <svg class="heart-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+        </svg>
+        <span>by</span>
+        <a href="mailto:mishra.siddharth90@gmail.com" class="footer-link">Siddharth Mishra</a>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Modal for Previewing Ruleset JSON -->
+  <div id="rulesetModal" class="modal-overlay" style="display: none;">
+    <div class="modal">
+      <div class="modal-header">
+        <h2>Ruleset JSON Preview</h2>
+        <button id="closeRulesetModal" class="modal-close">&times;</button>
+      </div>
+      <div class="modal-content">
+        <pre id="rulesetJsonDisplay" class="code-block modal-code"></pre>
+        <div class="modal-actions">
+          <button id="copyRulesetJson" class="btn btn-outline">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            Copy JSON
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for Editing Conditions -->
+  <div id="conditionModal" class="modal-overlay" style="display: none;">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 id="modalTitle">Add Condition</h2>
+        <button id="closeModal" class="modal-close">&times;</button>
+      </div>
+      <div class="modal-content">
+        <form id="conditionForm">
+          <input type="hidden" id="editingNodeId">
+          <input type="hidden" id="parentNodeId">
+          
+          <div class="form-group">
+            <label for="conditionPath">Path</label>
+            <input type="text" id="conditionPath" class="form-input" placeholder="e.g., user.profile.age" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="conditionOperator">Operator</label>
+            <select id="conditionOperator" class="form-select">
+              <option value="==">== (Equals)</option>
+              <option value="!=">!= (Not Equals)</option>
+              <option value=">">&gt; (Greater Than)</option>
+              <option value=">=">&gt;= (Greater or Equal)</option>
+              <option value="<">&lt; (Less Than)</option>
+              <option value="<=">&lt;= (Less or Equal)</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="conditionValue">Value</label>
+            <input type="text" id="conditionValue" class="form-input" placeholder="e.g., 25" required>
+          </div>
+          
+          <div class="form-group-checkbox">
+            <input type="checkbox" id="conditionNegate">
+            <label for="conditionNegate">Negate this condition</label>
+          </div>
+          
+          <div class="modal-actions">
+            <button type="button" id="cancelCondition" class="btn btn-outline">Cancel</button>
+            <button type="submit" class="btn btn-primary">Save Condition</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

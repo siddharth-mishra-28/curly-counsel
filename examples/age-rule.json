@@ -1,0 +1,12 @@
+{
+  "name": "age-rule",
+  "rules": [
+    {
+      "id": "c1",
+      "type": "condition",
+      "path": "user.age",
+      "operator": ">=",
+      "value": 18
+    }
+  ]
+}

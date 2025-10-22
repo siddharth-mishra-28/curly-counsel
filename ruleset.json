@@ -1,0 +1,13 @@
+{
+  "name": "Test Ruleset",
+  "rules": [
+    {
+      "id": "c1",
+      "type": "condition",
+      "order": 1,
+      "path": "user.age",
+      "operator": ">=",
+      "value": 18
+    }
+  ]
+}

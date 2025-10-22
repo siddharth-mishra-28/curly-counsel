@@ -1,0 +1,13 @@
+{
+  "name": "negation-rule",
+  "rules": [
+    {
+      "id": "c1",
+      "type": "condition",
+      "path": "user.isActive",
+      "operator": "==",
+      "value": "true",
+      "negate": true
+    }
+  ]
+}

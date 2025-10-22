@@ -1,0 +1,12 @@
+name = "cf-rule-engine"
+main = "./worker/index.js"
+compatibility_date = "2025-10-16"
+
+[[kv_namespaces]]
+binding = "RULES_KV"
+id = "85191c421cf6440abdeb3b43f38b5f04"
+
+
+[site]
+bucket = "./static"
+

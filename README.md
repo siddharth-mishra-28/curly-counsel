@@ -32,6 +32,11 @@
 * ☁️ **Serverless Architecture:** Fully runs on Cloudflare Workers — fast, scalable, cost-efficient.
 * 🔗 **Simple REST API:** Create, update, and evaluate rules via HTTP.
 
+![alt text](image.png)
+![alt text](image-1.png)
+![alt text](image-2.png)
+![alt text](image-3.png)
+![alt text](image-4.png)
 ---
 
 ## 🧱 Tech Stack
